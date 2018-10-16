@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Index</title>
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/index.css">
+    <script src="./js/jquery-1.9.1.min.js"></script>
+    <script src="./js/jquery.bxslider.js"></script>
+</head>
+
+<body>
+    <div id="nav"></div> 
+    <div class="container">
+        <div class="box deposit">
+            <div class="top-box">
+                <b>在线存款</b>
+                <span><i></i>请阁下确认交易账号以及姓名是否正确</span>
+            </div>
+            <div class="content-box clearfix">
+                <div class="fl">
+                    <div class="item">
+                        <p>姓名</p>
+                        <div class="input-div">王小明</div>
+                    </div>
+                    <div class="item">
+                        <p>身份证号</p>
+                        <div class="input-div">120001093</div>
+                    </div>
+                    <div class="item select-box">
+                        <p>入金通道</p>
+                        <select name="call">
+                            <option value="-1">请选择</option>
+                            <option value="支付通道1">支付通道1</option>
+                            <option value="支付通道2">支付通道2</option>
+                            <option value="支付通道3">支付通道3</option>
+                        </select>
+                    </div>
+                    <div class="item clearfix">
+                        <div class="item usd">
+                            <p>存款金额（USD）</p>
+                            <div class="input-div"></div>
+                        </div>
+                        <div class="item rmb">
+                            <p>折合人民币</p>
+                            <div class="input-div">18.300</div>
+                        </div>
+                    </div>
+                    <a href="javascript:;" class="next-a">前往支付页面</a>
+                    <a href="javascript:;" class="policy-a">支付政策</a>
+                    <i class="icon"></i>
+                </div>
+                <div class="item">
+                    <p>真实姓名</p>
+                    <input type="text" name="" id="">
+                </div>
+            </div>
+        </div>
+        <div class="box brank">
+            <div class="top-box">
+                <b>银行资料</b>
+                <span><i></i>个人资料与银行资料必须一致，否则影响您的正常取款，需修改资料请联系客服</span>
+            </div>
+            <div class="content-box">
+                <div class="item">
+                    <p>真实姓名</p>
+                    <input type="text" name="" id="">
+                    <span></span>
+                </div>
+                <div class="item select-box">
+                    <p>银行名称</p>
+                    <select name="bank">
+                        <option value="-1">请选择银行</option>
+                        <option value="中国银行">中国银行</option>
+                        <option value="建设银行">建设银行</option>
+                        <option value="农业银行">农业银行</option>
+                        <option value="工商银行">工商银行</option>
+                        <option value="交通银行">交通银行</option>
+                        <option value="中信银行">中信银行</option>
+                        <option value="华夏银行">华夏银行</option>
+                        <option value="招商银行">招商银行</option>
+                        <option value="兴业银行">兴业银行</option>
+                        <option value="广发银行">广发银行</option>
+                        <option value="浦发银行">浦发银行</option>
+                        <option value="光大银行">光大银行</option>
+                        <option value="0">其他银行</option>
+                    </select>
+                    <span></span>
+                </div>
+                <div class="item">
+                    <p>银行账号</p>
+                    <input type="text" name="" id="">
+                    <span></span>
+                </div>
+                <div class="item">
+                    <p>银行支行</p>
+                    <input type="text" name="" id="">
+                    <span></span>
+                </div>
+                <div class="item idcard-box">
+                    <p>银行卡照片</p>
+                    <div class="idcard clearfix">
+                        <div class="card-item front">
+                            <input type="file" id="cardFront" name="idcard_front" onchange="xmTanUploadImg(this)" accept="image/*">
+                            <div class="file">
+                                <img src="" alt="" id="cardFront-img">
+                            </div>
+                            <b>点击上传银行卡正面</b>
+                        </div>
+                        <div class="card-item back">
+                            <input type="file" id="cardBack" name="idcard_back" onchange="xmTanUploadImg(this)" accept="image/*">
+                            <div class="file">
+                                <img src="" alt="" id="cardBack-img">
+                            </div>
+                            <b>点击上传银行卡反面</b>
+                        </div>
+                    </div>
+                </div>
+                <a href="javascript:;" class="submit-a">提交资料</a>
+            </div>
+        </div>
+    </div>
+    <script>
+        $("#nav").load("./common/nav.html")
+        $(function () {
+            //判断浏览器是否支持FileReader接口
+            if (typeof FileReader == 'undefined') {
+                console.log("<h1>当前浏览器不支持FileReader接口</h1>");
+                //使选择控件不可操作
+                $("#cardFront-img").setAttribute("disabled", "disabled");
+                $("#cardBack-img").setAttribute("disabled", "disabled");
+            }
+        })
+        
+        function xmTanUploadImg(obj) {
+            var file = obj.files[0];
+            
+            // console.log(obj);console.log(file);
+            // console.log("file.size = " + file.size);  //file.size 单位为byte
+
+            var reader = new FileReader();
+
+            //读取文件过程方法
+            reader.onloadstart = function (e) {
+                console.log("开始读取....");
+            }
+            reader.onprogress = function (e) {
+                console.log("正在读取中....");
+            }
+            reader.onabort = function (e) {
+                console.log("中断读取....");
+            }
+            reader.onerror = function (e) {
+                console.log("读取异常....");
+            }
+            reader.onload = function (e) {
+                console.log("成功读取....");
+
+                // var img = $("#cardFront-img");
+                $(obj).siblings().find("img").attr("src", e.target.result);
+                //或者 img.src = this.result;  //e.target == this
+            }
+            reader.readAsDataURL(file)
+        }
+        $(".card-item b").click(function () {
+            $(this).siblings().eq(0).trigger("click");
+            if($(this).find(".file img").attr("src") != '') {
+                $(this).fadeOut();
+            }
+        })
+        $(".card-item .file").click(function () {
+            $(this).siblings().eq(0).trigger("click");
+        })
+    </script>
+</body>
+
+</html>
