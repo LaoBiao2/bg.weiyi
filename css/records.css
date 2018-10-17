@@ -1,0 +1,110 @@
+#page {
+    text-align: center
+}
+
+#page .layui-laypage a,
+#page .layui-laypage span {
+    padding: 0 12px;
+    margin: 0 5px;
+    font-size: 16px;
+    color: #666;
+}
+
+#page .layui-laypage-next em,
+#page .layui-laypage-prev em {
+    font-size: 22px;
+    font-weight: bold;
+    color: #a3a3a3;
+}
+
+/* 全部记录 */
+.box.records .content-box {
+    padding: 54px 232px 128px 92px;
+}
+.box.records .content-box .top-nav .item {
+    width: 250px;
+    margin-right: 60px;
+}
+.box.records .content-box .top-nav .item.select-box p::after {
+    top: 30px;
+}
+
+.box.records .content-box .top-nav .item.date-box {
+    width: 284px;
+}
+.box.records .content-box .top-nav .item.date-box .layui-form-item {
+    margin-bottom: 0;
+}
+.box.records .content-box .top-nav .item.date-box .layui-form-item .layui-inline {
+    margin-bottom: 0;
+    margin-right: 0;
+}
+.box.records .content-box .top-nav .item.date-box .layui-form-item .layui-inline .layui-form-label {
+    width: 46px;
+    height: 44px;
+    padding: 0;
+    border: 1px solid #e5e5e5;
+    border-radius: 4px 0 0 4px;
+    -webkit-border-radius: 4px 0 0 4px;
+    -moz-border-radius: 4px 0 0 4px;
+    -ms-border-radius: 4px 0 0 4px;
+    -o-border-radius: 4px 0 0 4px;
+    margin-right: -1px;
+    background: url(/images/date_icon.png) no-repeat center;
+}
+.box.records .content-box .top-nav .item.date-box .layui-form-item .layui-input-inline {
+    width: 236px;
+    margin-right: 0;
+}
+.box.records .content-box .top-nav .item.date-box .layui-form-item .layui-input-inline input {
+    border-radius: 0 4px 4px 0;
+    -webkit-border-radius: 0 4px 4px 0;
+    -moz-border-radius: 0 4px 4px 0;
+    -ms-border-radius: 0 4px 4px 0;
+    -o-border-radius: 0 4px 4px 0;
+}
+.layui-laydate-content td.laydate-selected {
+    background-color: #ffd3cc !important;
+}
+
+.box.records .content-box .nav-content {
+    min-height: 400px;
+    margin-bottom: 28px;
+}
+
+.box.records .content-box .nav-content h2 {
+    font-size: 16px;
+    color: #333;
+    display: block;
+    text-align: center;
+    margin-top: 151px;
+}
+
+.box.records .content-box .nav-content table {
+    width: 100%;
+    text-align: center;
+    border: 1px solid #ebebeb;
+}
+
+.box.records .content-box .nav-content table tr {
+    height: 50px;
+    font-size: 14px;
+    color: #4a4a4a;
+    border-top: 1px solid #ebebeb;
+}
+.box.records .content-box .nav-content table tr:nth-child(2n+1) {
+    background-color: #f4f4f4;
+}
+.box.records .content-box .nav-content table tr:first-child {
+    color: #fff;
+    background-color: #31bc86;
+    border-top: none;
+}
+
+.box.records .content-box .nav-content table tr:not(:first-child) td:not(:first-child) {
+    border-left: 1px solid #ebebeb;
+}
+
+.box.records.access .nav-content table tr:not(:first-child) td:last-child {
+    color: #438643;
+}

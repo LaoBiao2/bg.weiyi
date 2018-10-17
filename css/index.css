@@ -1,173 +1,14 @@
-/* 基本资料 */
-.item {
-    width: 350px;
-    margin: 0 128px 40px 0;
-    display: inline-block;
-    position: relative;
-}
-
-.item p {
-    font-size: 16px;
-    color: #4a4a4a;
-    margin-bottom: 10px;
-    display: block;
-    position: relative;
-}
-.item.warning p::after {
-    position: absolute;
-    right: 18px;
-    top: 40px;
-    width: 20px;
-    height: 20px;
-    content: ' ';
-    background: url(/images/content_icon.png) -60px 0 no-repeat;
-}
-.item.success p::after {
-    position: absolute;
-    right: 18px;
-    top: 40px;
-    width: 20px;
-    height: 20px;
-    content: ' ';
-    background: url(/images/content_icon.png) -29px 0 no-repeat;
-}
-.item.select-box p::after {
-    position: absolute;
-    right: 3px;
-    top: 46px;
-    width: 10px;
-    height: 7px;
-    padding-right: 10px;
-    content: ' ';
-    background: url(/images/content_icon.png) -96px -6px no-repeat;
-    background-color: #fff;
-}
-
-.item input,
-.item select,
-.item .input-div {
-    width: 100%;
-    height: 46px;
-    border: 1px solid #e5e5e5;
-    padding: 0 20px;
-    box-sizing: border-box;
-    border-radius: 4px;
-    -webkit-border-radius: 4px;
-    -moz-border-radius: 4px;
-    -ms-border-radius: 4px;
-    -o-border-radius: 4px;
-    font-size: 16px;
-    color: #333;
-}
-.item input:focus {
-    border-color: #ff5722;
-    outline: none;
-}
-.item.warning input {
-    border-color: #a93535;
-}
-.item.success input {
-    border-color: #35a947;
-}
-.item select option  {
-    line-height: 40px;
-}
-.item .input-div {
-    line-height: 46px;
-    background-color: #f4f4f4;
-}
-.item span {
-    font-size: 14px;
-    color: #a93535;
-    display: none;
-    position: absolute;
-    bottom: -24px;
-    left: 23px;
-}
-.item.warning span {
-    display: block;
-}
-
-.item.idcard-box {
-    width: 900px;
-}
-
-.item .idcard .card-item {
-    width: 370px;
-    height: 210px;
-    border: 1px dashed #e5e5e5;
-    float: left;
-    position: relative;
-    cursor: pointer;
-}
-.item .idcard .card-item.back {
-    margin-left: 110px;
-}
-
-.item .idcard b {
-    width: 100%;
-    line-height: 210px;
-    text-align: center;
-    display: block;
-    font-size: 20px;
-    color: #636363;
-    position: absolute;
-    top: 0;
-    left: 0;
-}
-
-.item .idcard input {
-    display: none;
-    position: absolute;
-    left: 0;
-    top: 0;
-    opacity: 0;
-}
-
-.item .idcard .card-item .file {
-    width: 329px;
-    height: 185px;
-    margin: 12px auto;
-    background: url(/images/idcard.png) 0 0 no-repeat;
-    opacity: 0.7;
-    transition: all .3s;
-    -webkit-transition: all .3s;
-    -moz-transition: all .3s;
-    -ms-transition: all .3s;
-    -o-transition: all .3s;
-}
-.item .idcard .card-item.back .file {
-    background: url(/images/idcard.png) -486px 0 no-repeat;
-}
-.item .idcard .card-item:hover .file {
-    opacity: 1;
-}
-.item .idcard .card-item .file img {
-    width: 100%;
-    height: 100%;
-}
-
-.submit-a {
-    width: 191px;
-    height: 42px;
-    line-height: 42px;
-    border-radius: 4px;
-    -webkit-border-radius: 4px;
-    -moz-border-radius: 4px;
-    -ms-border-radius: 4px;
-    -o-border-radius: 4px;
-    text-align: center;
-    font-size: 20px;
-    font-weight: bold;
-    background-color: #ca3a26;
-    color: #fff;
-    display: block;
-}
-
 /* 银行资料 */
 .box.brank .top-box,
 .box.deposit .top-box {
     background-color: #345483;
+}
+
+.box.brank .item.brankName input {
+    display: none;
+    position: absolute;
+    top: 26px;
+    left: 0;
 }
 
 .box.brank .idcard .card-item .file {
@@ -175,6 +16,9 @@
 }
 
 /* 在线存款 */
+.box.deposit {
+    position: relative;
+}
 .box.deposit .fl {
     width: 490px;
 }
@@ -206,18 +50,15 @@
     color: #333;
 }
 .box.deposit .fl .item .item.rmb::after {
-    content: '$';
+    content: '￥';
 }
 
 .box.deposit .fl .item .item div {
     padding-left: 50px;
     line-height: 44px;
 }
-.box.deposit .fl .item .item.usd div {
-    background-color: #fff;
-}
 
-.box.deposit .fl .next-a {
+.box.deposit .fl .btn-a {
     border-radius: 4px;
     -webkit-border-radius: 4px;
     -moz-border-radius: 4px;
@@ -249,4 +90,235 @@
     display: block;
     margin: 0 auto;
     background: url(/images/deposit_img.png) no-repeat center;
+}
+
+.box.deposit .item.chose {
+    width: 380px;
+    margin-left: 56px;
+}
+.box.deposit .item.chose .chose-list {
+    border: 1px solid #e5e5e5;
+    padding: 26px 22px 0 25px;
+    box-sizing: border-box;
+}
+
+.box.deposit .item.chose .chose-list .input-div {
+    margin-bottom: 20px;
+    text-align: center;
+    position: relative;
+    font-size: 20px;
+    font-weight: bold;
+    color: #4a4a4a;
+}
+.box.deposit .item.chose .chose-list .input-div.active {
+    background-color: #df4425;
+    color: #fff;
+    border-color: #df4425;
+}
+.box.deposit .item.chose .chose-list .input-div:hover {
+    border-color: #df4425;
+}
+.box.deposit .item.chose .chose-list .input-div i {
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    border: 1px solid #d0d0d0;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    position: absolute;
+    left: 34px;
+    top: 50%;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+}
+.box.deposit .item.chose .chose-list .input-div.active i {
+    width: 14px;
+    height: 14px;
+    border: 4px solid #fff;
+}
+
+.box.deposit .pop-box {
+    position: absolute;
+    top: 95px;
+    left: 68px;
+    width: 1072px;
+    border: 1px solid #345483;
+    padding: 24px 124px 60px 120px;
+    box-sizing: border-box;
+    background-color: #fff;
+    display: none;
+}
+.box.deposit .pop-box i.close-btn {
+    width: 19px;
+    height: 19px;
+    display: inline-block;
+    position: absolute;
+    top: 26px;
+    right: 42px;
+    background: url(/images/content_icon.png) -119px -1px no-repeat;
+}
+
+.box.deposit .pop-box h5 {
+    font-size: 20px;
+    color: #333;
+    display: block;
+    text-align: center;
+}
+
+.box.deposit .pop-box .pop-content {
+    margin-top: 48px;
+}
+.box.deposit .pop-box .pop-content p {
+    font-size: 16px;
+    color: #4a4a4a;
+    line-height: 30px;
+}
+
+/* 极速取款 */
+.box.draw .top-box {
+    background:#bc3326; /* 一些不支持背景渐变的浏览器 */  
+    background:-moz-linear-gradient(left, #bc3326, #df4425);  
+    background:-webkit-gradient(linear,left 0, right 0, from(#bc3326), to(#df4425));  
+    background:-o-linear-gradient(left, #bc3326, #df4425);
+}
+
+.box.draw .content-box .fl {
+    float: initial;
+    margin: 0 auto;
+}
+
+.box.draw .content-box .fl .btn-div {
+    text-align: center;
+}
+.box.draw .content-box .fl .btn-a {
+    width: 190px;
+    display: inline-block;
+}
+.box.draw .content-box .fl .btn-a.reset-a {
+    background-color: #bfbfbf;
+    margin-right: 20px;
+}
+
+.box.draw .content-box .fl .item .item .input-div,
+.box.draw .content-box .fl .item .item.rmb::after {
+    color: #ff5722;
+}
+
+
+/* 修改密码 */
+.box.reset .item {
+    width: 100%;
+    display: block;
+}
+
+.box.reset .item p {
+    display: inline-block;
+    width: 74px;
+    height: 46px;
+    line-height: 46px;
+    margin: 0 23px 0 0;
+    font-size: 14px;
+    color: #333;
+    text-align: right;
+}
+
+.box.reset .item input {
+    width: 285px;
+    border-radius: 0;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    -ms-border-radius: 0;
+    -o-border-radius: 0;
+}
+.box.reset .item.success p::after,
+.box.reset .item.warning p::after {
+    /* right: -298px;
+    top: 12px; */
+    display: none;
+}
+.box.reset .item.warning span {
+    left: 108px;
+}
+
+
+.box.reset .item .tip {
+    margin-left: 18px;
+    display: inline-block;
+}
+.box.reset .item .tip i {
+    display: inline-block;
+    font-size: 12px;
+    color: #999;
+    font-style: normal;
+    line-height: 46px;
+    margin-right: 10px;
+}
+
+.box.reset .item .tip ul {
+    width: 126px;
+    height: 8px;
+    border: 1px solid #d2d2d2;
+    display: inline-block;
+    padding: 1px;
+    box-sizing: border-box;
+}
+.box.reset .item .tip ul li {
+    width: 40px;
+    height: 4px;
+    float: left;
+    background-color: #eee;
+}
+.box.reset .item .tip ul li:nth-child(2) {
+    margin: 0 1px;
+}
+
+.box.reset a.next-a {
+    width: 285px;
+    height: 46px;
+    line-height: 46px;
+    background-color: #35a947;
+    font-size: 18px;
+    color: #fff;
+    display: inline-block;
+    text-align: center;
+    margin-left: 99px;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -o-border-radius: 4px;
+}
+
+.box.reset .success-reset {
+    width: 477px;
+    padding-top: 68px;
+    display: none;
+}
+
+.box.reset .success-reset i {
+    width: 64px;
+    height: 65px;
+    display: block;
+    margin: 0 auto 36px;
+    background: url(/images/pwd_icon.png) no-repeat center;
+}
+.box.reset .success-reset p {
+    text-align: center;
+    font-size: 14px;
+}
+.box.reset .success-reset p span {
+    color: #333;
+    display: inline-block;
+    margin-right: 10px;
+    padding-right: 10px;
+    border-right: 1px solid #b0b0b0; 
+}
+.box.reset .success-reset p a {
+    color: #2d8fe9;
 }
