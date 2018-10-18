@@ -164,6 +164,13 @@ body {
     overflow: hidden;
     position: relative;
 }
+.nav .user-info .head-img input {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+}
 .nav .user-info .head-img img {
     width: 100%;
     height: 100%;

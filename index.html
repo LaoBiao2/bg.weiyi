@@ -60,14 +60,14 @@
                             <input type="file" id="cardFront" name="idcard_front" onchange="xmTanUploadImg(this)"
                                 accept="image/*">
                             <div class="file">
-                                <img src="" alt="" id="cardFront-img">
+                                <img src="" alt="" id="cardFront-img" class="img-index">
                             </div>
                             <b>请上传身份证正面照片</b>
                         </div>
                         <div class="card-item back">
                             <input type="file" id="cardBack" name="idcard_back" onchange="xmTanUploadImg(this)" accept="image/*">
                             <div class="file">
-                                <img src="" alt="" id="cardBack-img">
+                                <img src="" alt="" id="cardBack-img" class="img-index">
                             </div>
                             <b>请上传身份证反面照片</b>
                         </div>
@@ -126,14 +126,14 @@
                             <input type="file" id="cardFront" name="idcard_front" onchange="xmTanUploadImg(this)"
                                 accept="image/*">
                             <div class="file">
-                                <img src="" alt="" id="cardFront-img">
+                                <img src="" alt="" id="cardFront-img" class="img-index">
                             </div>
                             <b>点击上传银行卡正面</b>
                         </div>
                         <div class="card-item back">
                             <input type="file" id="cardBack" name="idcard_back" onchange="xmTanUploadImg(this)" accept="image/*">
                             <div class="file">
-                                <img src="" alt="" id="cardBack-img">
+                                <img src="" alt="" id="cardBack-img" class="img-index">
                             </div>
                             <b>点击上传银行卡反面</b>
                         </div>
@@ -145,46 +145,6 @@
     </div>
     <script>
         $("#nav").load("./common/nav.html")
-        $(function () {
-            //判断浏览器是否支持FileReader接口
-            if (typeof FileReader == 'undefined') {
-                console.log("<h1>当前浏览器不支持FileReader接口</h1>");
-                //使选择控件不可操作
-                $("#cardFront-img").setAttribute("disabled", "disabled");
-                $("#cardBack-img").setAttribute("disabled", "disabled");
-            }
-        })
-
-        function xmTanUploadImg(obj) {
-            var file = obj.files[0];
-
-            // console.log(obj);console.log(file);
-            // console.log("file.size = " + file.size);  //file.size 单位为byte
-
-            var reader = new FileReader();
-
-            //读取文件过程方法
-            reader.onloadstart = function (e) {
-                console.log("开始读取....");
-            }
-            reader.onprogress = function (e) {
-                console.log("正在读取中....");
-            }
-            reader.onabort = function (e) {
-                console.log("中断读取....");
-            }
-            reader.onerror = function (e) {
-                console.log("读取异常....");
-            }
-            reader.onload = function (e) {
-                console.log("成功读取....");
-
-                // var img = $("#cardFront-img");
-                $(obj).siblings().find("img").attr("src", e.target.result);
-                //或者 img.src = this.result;  //e.target == this
-            }
-            reader.readAsDataURL(file)
-        }
         $(".card-item b").click(function () {
             $(this).siblings().eq(0).trigger("click");
             if ($(this).find(".file img").attr("src") != '') {
