@@ -31,11 +31,11 @@
                     <div class="item clearfix">
                         <div class="item usd">
                             <p>取款金额（美元）</p>
-                            <div class="input-div fff">3000</div>
+                            <input type="text" name="" id="">
                         </div>
                         <div class="item rmb">
                             <p>取款金额（人民币）</p>
-                            <div class="input-div">18.300</div>
+                            <div class="input-div"></div>
                         </div>
                     </div>
                     <div class="btn-div">
@@ -67,6 +67,50 @@
         $(".item.chose .input-div").click(function () {
             $(this).addClass("active").siblings().removeClass("active");
             $(".item .item.usd .input-div").text($(this).find("b").text());
+        })
+        // 取款金额 输入
+        $(".item .item.usd input").blur(function () {
+            var v = $(this).val();
+            if (isNaN(v)) {
+                $(this).parent().addClass("warning");
+                $(".item.rmb div.input-div").text('');
+            } else {
+                // 负数
+                if (Math.abs(v) != v) {
+                    v = Math.abs(v).toString();
+                    $(this).val(v);
+                    $(".item.rmb div.input-div").text(Mul(v , 6.8).toFixed(2));
+                }
+                // 小数
+                if ( parseInt(v) != v) {
+                    if (v.split(".")[1].length > 2) {
+                        $(this).val(parseFloat(v).toFixed(2));
+                        var agr = $(this).val();
+                        $(".item.rmb div.input-div").text(Mul(agr , 6.8).toFixed(2));
+                    }
+                }
+                $(this).parent().removeClass("warning");
+            }
+        })
+        // 取款金额 计算
+        $(".item .item.usd input").on('input propertychange', function () {
+            if ($(this).val() == '') {
+                $(".item.rmb div.input-div").text('');
+            } else if (!isNaN($(this).val())) {
+                var arg = parseFloat($(this).val()).toFixed(2);
+                $(".item.rmb div.input-div").text(Mul(arg , 6.8).toFixed(2));
+            }
+        })
+        function Mul(arg1, arg2) {
+            var r1 = arg1.toString(), r2 = arg2.toString(), m, resultVal, d = arguments[2];
+            m = (r1.split(".")[1] ? r1.split(".")[1].length : 0) + (r2.split(".")[1] ? r2.split(".")[1].length : 0);
+            resultVal = Number(r1.replace(".", "")) * Number(r2.replace(".", "")) / Math.pow(10, m);
+            return typeof d !== "number" ? Number(resultVal) : Number(resultVal.toFixed(parseInt(d)));
+        }
+        // 重置
+        $(".btn-div a.reset-a").click(function () {
+            $(".item .item.usd input").val('');
+            $(".item.rmb div.input-div").text('');
         })
         $(".content-box a.policy-a").click(function () {
             $(".pop-box").fadeIn();

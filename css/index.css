@@ -58,6 +58,19 @@
     line-height: 44px;
 }
 
+.box.deposit .fl .item .item.usd {
+    position: relative;
+}
+.box.deposit .fl .item .item.usd.warning p::after {
+    display: none;
+}
+.box.deposit .fl .item .item.usd input {
+    position: absolute;
+    left: 0;
+    top: 26px;
+    padding-left: 50px;
+}
+
 .box.deposit .fl .btn-a {
     border-radius: 4px;
     -webkit-border-radius: 4px;
@@ -73,6 +86,14 @@
     margin: 30px auto 20px;
     text-align: center;
     background-color: #35a947;
+    transition: all .3s;
+    -webkit-transition: all .3s;
+    -moz-transition: all .3s;
+    -ms-transition: all .3s;
+    -o-transition: all .3s;
+}
+.box.deposit .fl .btn-a:hover {
+    background-color: #2d903c;
 }
 
 .box.deposit .fl .policy-a {
@@ -96,6 +117,14 @@
     width: 380px;
     margin-left: 56px;
 }
+@media screen and (max-width: 1679px){
+    .box.deposit .item.chose {
+        margin-right: 5px;
+    }
+    .box.deposit .pop-box {
+        margin-right: 68px;
+    }
+}
 .box.deposit .item.chose .chose-list {
     border: 1px solid #e5e5e5;
     padding: 26px 22px 0 25px;
@@ -109,6 +138,7 @@
     font-size: 20px;
     font-weight: bold;
     color: #4a4a4a;
+    cursor: pointer;
 }
 .box.deposit .item.chose .chose-list .input-div.active {
     background-color: #df4425;
@@ -147,7 +177,8 @@
     position: absolute;
     top: 95px;
     left: 68px;
-    width: 1072px;
+    z-index: 3;
+    max-width: 1072px;
     border: 1px solid #345483;
     padding: 24px 124px 60px 120px;
     box-sizing: border-box;
@@ -201,8 +232,11 @@
     display: inline-block;
 }
 .box.draw .content-box .fl .btn-a.reset-a {
-    background-color: #bfbfbf;
+    background-color: #a7a7a7;
     margin-right: 20px;
+}
+.box.draw .content-box .fl .btn-a.reset-a:hover {
+    background-color: #bfbfbf;
 }
 
 .box.draw .content-box .fl .item .item .input-div,
@@ -230,11 +264,6 @@
 
 .box.reset .item input {
     width: 285px;
-    border-radius: 0;
-    -webkit-border-radius: 0;
-    -moz-border-radius: 0;
-    -ms-border-radius: 0;
-    -o-border-radius: 0;
 }
 .box.reset .item.success p::after,
 .box.reset .item.warning p::after {

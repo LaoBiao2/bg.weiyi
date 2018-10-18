@@ -40,11 +40,12 @@
                     <div class="item clearfix">
                         <div class="item usd">
                             <p>存款金额（USD）</p>
-                            <div class="input-div fff"></div>
+                            <!-- <div class="input-div fff"></div> -->
+                            <input type="text" name="" id="">
                         </div>
                         <div class="item rmb">
                             <p>折合人民币</p>
-                            <div class="input-div">18.300</div>
+                            <div class="input-div"></div>
                         </div>
                     </div>
                     <a href="javascript:;" class="next-a btn-a">前往支付页面</a>
@@ -56,15 +57,15 @@
                     <div class="chose-list">
                         <div class="input-div fff">
                             <i></i>
-                            $ <b>5.000</b>
+                            $ <b>5000</b>
                         </div>
                         <div class="input-div fff">
                             <i></i>
-                            $ <b>3.000</b>
+                            $ <b>3000</b>
                         </div>
                         <div class="input-div fff">
                             <i></i>
-                            $ <b>1.000</b>
+                            $ <b>1000</b>
                         </div>
                         <div class="input-div fff">
                             <i></i>
@@ -103,10 +104,50 @@
     </div>
     <script>
         $("#nav").load("./common/nav.html")
+        // 快速选择
         $(".item.chose .input-div").click(function () {
             $(this).addClass("active").siblings().removeClass("active");
-            $(".item .item.usd .input-div").text($(this).find("b").text());
+            $(".item .item.usd input").val($(this).find("b").text());
+            $(".item.rmb div.input-div").text(Mul($(this).find("b").text() , 6.8).toFixed(2));
         })
+        // 存款金额 计算
+        $(".item .item.usd input").on('blur input propertychange', function () {
+            var v = $(this).val();
+            
+            if (v == '') {
+                $(".item.rmb div.input-div").text('');
+            } else if (!isNaN(v)) {
+                var arg = parseFloat(v).toFixed(2);
+                
+                // 负数
+                if (Math.abs(v) != v) {
+                    v = Math.abs(v).toString();
+                    $(this).val(v);
+                    $(".item.rmb div.input-div").text(Mul(arg , 6.8).toFixed(2));
+                }
+                // 小数
+                if ( parseInt(v) != v) {
+                    if (v.split(".")[1].length > 2) {
+                        $(this).val(parseFloat(v).toFixed(2));
+                        var t = $(this).val();
+                        $(".item.rmb div.input-div").text(Mul(t , 6.8).toFixed(2));
+                    }
+                }
+
+                $(".item.rmb div.input-div").text(Mul(arg , 6.8).toFixed(2));
+                $(this).parent().removeClass("warning");
+                $(".item.chose .input-div").removeClass("active");
+            } else {
+                $(this).parent().addClass("warning");
+                $(".item.rmb div.input-div").text('');
+            }
+        })
+        function Mul(arg1, arg2) {
+            var r1 = arg1.toString(), r2 = arg2.toString(), m, resultVal, d = arguments[2];
+            m = (r1.split(".")[1] ? r1.split(".")[1].length : 0) + (r2.split(".")[1] ? r2.split(".")[1].length : 0);
+            resultVal = Number(r1.replace(".", "")) * Number(r2.replace(".", "")) / Math.pow(10, m);
+            return typeof d !== "number" ? Number(resultVal) : Number(resultVal.toFixed(parseInt(d)));
+        }
         $(".content-box a.policy-a").click(function () {
             $(".pop-box").fadeIn();
         })
